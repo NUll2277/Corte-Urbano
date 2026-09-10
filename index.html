@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- METADATA Y CONFIGURACIÓN -->
+    <!-- charset define la codificación de caracteres (UTF-8 soporta ñ, acentos, etc.) -->
+    <meta charset="UTF-8">
+    
+    <!-- viewport hace la web responsive en móviles -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Descripción para SEO (aparece en Google) -->
+    <meta name="description" content="Corte Urbano - Barbería moderna con estilo. Cortes profesionales, barba y más. Reserva tu cita hoy.">
+    
+    <!-- Palabras clave para SEO -->
+    <meta name="keywords" content="barbería, corte de pelo, barba, fade, estilo urbano">
+    
+    <!-- Autor de la página -->
+    <meta name="author" content="Tu Nombre">
+    
+    <!-- Título que aparece en la pestaña del navegador -->
+    <title>Corte Urbano | Barbería Moderna</title>
+    
+    <!-- Favicon (icono de la pestaña) -->
+    <link rel="icon" type="image/png" href="imagenes/favicon.png">
+    
+    <!-- Enlace a la hoja de estilos CSS -->
+    <link rel="stylesheet" href="estilos.css">
+    
+    <!-- Google Fonts (fuentes personalizadas) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <!-- Iconos de Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- ============================================ -->
+    <!-- HEADER: Encabezado principal de la página -->
+    <!-- ============================================ -->
+    <header class="header" id="inicio">
+        
+        <!-- NAV: Navegación principal (elemento semántico HTML5) -->
+        <!-- Los elementos semánticos describen su significado al navegador [[1]] -->
+        <nav class="navbar" aria-label="Navegación principal">
+            
+            <!-- LOGO: Marca de la barbería -->
+            <a href="#inicio" class="logo" aria-label="Corte Urbano - Inicio">
+                <i class="fas fa-scissors"></i>
+                <span>Corte Urbano</span>
+            </a>
+            
+            <!-- MENÚ DE NAVEGACIÓN -->
+            <!-- aria-label mejora la accesibilidad para lectores de pantalla [[17]] -->
+            <ul class="nav-menu" aria-label="Menú principal">
+                <li class="nav-item">
+                    <a href="#inicio" class="nav-link active">Inicio</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#servicios" class="nav-link">Servicios</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#galeria" class="nav-link">Galería</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#precios" class="nav-link">Precios</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#reservas" class="nav-link">Reservas</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#ubicacion" class="nav-link">Ubicación</a>
+                </li>
+            </ul>
+            
+            <!-- BOTÓN DE RESERVA DESTACADO -->
+            <a href="#reservas" class="btn-reservar-nav">
+                <i class="fas fa-calendar-check"></i>
+                Reservar
+            </a>
+            
+            <!-- MENÚ HAMBURGUESA (para móviles) -->
+            <button class="menu-toggle" aria-label="Abrir menú" aria-expanded="false">
+                <i class="fas fa-bars"></i>
+            </button>
+        </nav>
+    </header>
+
+    <!-- ============================================ -->
+    <!-- MAIN: Contenido principal de la página -->
+    <!-- ============================================ -->
+    <main>
+        
+        <!-- ============================================ -->
+        <!-- SECCIÓN HERO: Primera impresión impactante -->
+        <!-- ============================================ -->
+        <section class="hero" id="hero" aria-label="Bienvenida">
+            
+            <!-- Canvas para el fondo de hexágonos animados -->
+            <canvas id="hexagonCanvas"></canvas>
+            
+            <!-- Overlay oscuro para mejorar legibilidad del texto -->
+            <div class="hero-overlay"></div>
+            
+            <!-- CONTENIDO DEL HERO -->
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    <span class="title-line">Tu Estilo,</span>
+                    <span class="title-line highlight">Tu Actitud</span>
+                </h1>
+                
+                <p class="hero-subtitle">
+                    Barbería moderna con estilo urbano. 
+                    <span class="typing-text"></span>
+                </p>
+                
+                <div class="hero-buttons">
+                    <a href="#reservas" class="btn btn-primary">
+                        <i class="fas fa-calendar-plus"></i>
+                        Agenda Tu Cita
+                    </a>
+                    <a href="#servicios" class="btn btn-secondary">
+                        <i class="fas fa-play"></i>
+                        Ver Servicios
+                    </a>
+                </div>
+                
+                <!-- ESTADÍSTICAS RÁPIDAS -->
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number" data-target="500">0</span>
+                        <span class="stat-label">Clientes Felices</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number" data-target="5">0</span>
+                        <span class="stat-label">Barberos Expertos</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number" data-target="3">0</span>
+                        <span class="stat-label">Años de Experiencia</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- SCROLL INDICATOR (flecha hacia abajo) -->
+            <div class="scroll-indicator">
+                <i class="fas fa-chevron-down"></i>
+            </div>
+        </section>
+
+        <!-- ============================================ -->
+        <!-- SECCIÓN SERVICIOS: Qué ofrecemos -->
+        <!-- ============================================ -->
+        <section class="servicios" id="servicios" aria-labelledby="titulo-servicios">
+            
+            <!-- HEADER DE SECCIÓN -->
+            <header class="section-header">
+                <h2 id="titulo-servicios" class="section-title">
+                    <i class="fas fa-cut"></i>
+                    Nuestros Servicios
+                </h2>
+                <p class="section-subtitle">
+                    Especialistas en cortes urbanos y estilos modernos
+                </p>
+            </header>
+            
+            <!-- GRID DE SERVICIOS -->
+            <div class="servicios-grid">
+                
+                <!-- SERVICIO 1: Corte de Cabello -->
+                <!-- article es semántico para contenido independiente [[1]] -->
+                <article class="servicio-card" data-servicio="corte">
+                    <div class="servicio-icon">
+                        <i class="fas fa-scissors"></i>
+                    </div>
+                    <h3 class="servicio-titulo">Corte de Cabello</h3>
+                    <p class="servicio-desc">
+                        Fades, texturizados, clásicos o urbanos. 
+                        Asesoramiento personalizado según tu rostro.
+                    </p>
+                    <ul class="servicio-features">
+                        <li><i class="fas fa-check"></i> Lavado incluido</li>
+                        <li><i class="fas fa-check"></i> Peinado final</li>
+                        <li><i class="fas fa-check"></i> Productos de calidad</li>
+                    </ul>
+                    <span class="servicio-precio">Desde $15</span>
+                </article>
+
+                <!-- SERVICIO 2: Arreglo de Barba -->
+                <article class="servicio-card" data-servicio="barba">
+                    <div class="servicio-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3 class="servicio-titulo">Arreglo de Barba</h3>
+                    <p class="servicio-desc">
+                        Perfilado, recorte y tratamiento con toalla caliente. 
+                        Aceites esenciales incluidos.
+                    </p>
+                    <ul class="servicio-features">
+                        <li><i class="fas fa-check"></i> Toalla caliente</li>
+                        <li><i class="fas fa-check"></i> Aceite para barba</li>
+                        <li><i class="fas fa-check"></i> Perfilado perfecto</li>
+                    </ul>
+                    <span class="servicio-precio">Desde $10</span>
+                </article>
+
+                <!-- SERVICIO 3: Combo Completo -->
+                <article class="servicio-card destacado" data-servicio="combo">
+                    <div class="badge-popular">Más Popular</div>
+                    <div class="servicio-icon">
+                        <i class="fas fa-crown"></i>
+                    </div>
+                    <h3 class="servicio-titulo">Combo Completo</h3>
+                    <p class="servicio-desc">
+                        Corte + Barba + Cejas. 
+                        La experiencia completa para verte increíble.
+                    </p>
+                    <ul class="servicio-features">
+                        <li><i class="fas fa-check"></i> Todo incluido</li>
+                        <li><i class="fas fa-check"></i> Bebida de cortesía</li>
+                        <li><i class="fas fa-check"></i> 20% descuento</li>
+                    </ul>
+                    <span class="servicio-precio">$30 <small>(Ahorra $5)</small></span>
+                </article>
+
+                <!-- SERVICIO 4: Diseño de Cejas -->
+                <article class="servicio-card" data-servicio="cejas">
+                    <div class="servicio-icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <h3 class="servicio-titulo">Diseño de Cejas</h3>
+                    <p class="servicio-desc">
+                        Perfilado y limpieza de cejas. 
+                        Realza tu mirada con un diseño profesional.
+                    </p>
+                    <ul class="servicio-features">
+                        <li><i class="fas fa-check"></i> Perfilado con navaja</li>
+                        <li><i class="fas fa-check"></i> Pinza</li>
+                        <li><i class="fas fa-check"></i> Asesoramiento</li>
+                    </ul>
+                    <span class="servicio-precio">$5</span>
+                </article>
+
+                <!-- SERVICIO 5: Corte Niño -->
+                <article class="servicio-card" data-servicio="ninos">
+                    <div class="servicio-icon">
+                        <i class="fas fa-child"></i>
+                    </div>
+                    <h3 class="servicio-titulo">Corte Niño</h3>
+                    <p class="servicio-desc">
+                        Especial para menores de 12 años. 
+                        Paciencia y diversión garantizada.
+                    </p>
+                    <ul class="servicio-features">
+                        <li><i class="fas fa-check"></i> Hasta 12 años</li>
+                        <li><i class="fas fa-check"></i> Ambiente amigable</li>
+                        <li><i class="fas fa-check"></i> Chupetín incluido</li>
+                    </ul>
+                    <span class="servicio-precio">$12</span>
+                </article>
+
+                <!-- SERVICIO 6: Servicio Express -->
+                <article class="servicio-card" data-servicio="express">
+                    <div class="servicio-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3 class="servicio-titulo">Servicio Express</h3>
+                    <p class="servicio-desc">
+                        ¿Poco tiempo? Arreglo rápido de puntas 
+                        o perfilado express en 15 minutos.
+                    </p>
+                    <ul class="servicio-features">
+                        <li><i class="fas fa-check"></i> 15 minutos</li>
+                        <li><i class="fas fa-check"></i> Sin cita previa</li>
+                        <li><i class="fas fa-check"></i> Precio especial</li>
+                    </ul>
+                    <span class="servicio-precio">$8</span>
+                </article>
+            </div>
+        </section>
+
+        <!-- ============================================ -->
+        <!-- SECCIÓN GALERÍA: Muestra de trabajos -->
+        <!-- ============================================ -->
+        <section class="galeria" id="galeria" aria-labelledby="titulo-galeria">
+            
+            <header class="section-header">
+                <h2 id="titulo-galeria" class="section-title">
+                    <i class="fas fa-images"></i>
+                    Galería de Cortes
+                </h2>
+                <p class="section-subtitle">
+                    Algunos de nuestros mejores trabajos
+                </p>
+            </header>
+
+            <!-- FILTROS DE GALERÍA -->
+            <div class="galeria-filtros">
+                <button class="filtro-btn active" data-filtro="todos">Todos</button>
+                <button class="filtro-btn" data-filtro="fade">Fades</button>
+                <button class="filtro-btn" data-filtro="texturizado">Texturizados</button>
+                <button class="filtro-btn" data-filtro="clasico">Clásicos</button>
+                <button class="filtro-btn" data-filtro="barba">Barbas</button>
+            </div>
+
+            <!-- GRID DE IMÁGENES -->
+            <!-- figure es semántico para contenido multimedia [[4]] -->
+            <div class="galeria-grid">
+                
+                <figure class="galeria-item" data-categoria="fade">
+                    <img src="imagenes/Corte Fade Degradado Lateral.jpg" alt="Corte fade degradado lateral" loading="lazy">
+                    <figcaption class="galeria-overlay">
+                        <h4>Fade Degradado</h4>
+                        <p>Transición perfecta</p>
+                        <button class="btn-ver-mas" aria-label="Ver imagen completa">
+                            <i class="fas fa-search-plus"></i>
+                        </button>
+                    </figcaption>
+                </figure>
+
+                <figure class="galeria-item" data-categoria="texturizado">
+                    <img src="imagenes/Corte Texturizado Moderno.jpg" alt="Corte texturizado moderno" loading="lazy">
+                    <figcaption class="galeria-overlay">
+                        <h4>Texturizado Moderno</h4>
+                        <p>Estilo urbano</p>
+                        <button class="btn-ver-mas" aria-label="Ver imagen completa">
+                            <i class="fas fa-search-plus"></i>
+                        </button>
+                    </figcaption>
+                </figure>
+
+                <figure class="galeria-item" data-categoria="barba">
+                    <img src="imagenes/Arreglo de Barba.jpg" alt="Arreglo de barba completo" loading="lazy">
+                    <figcaption class="galeria-overlay">
+                        <h4>Barba Perfecta</h4>
+                        <p>Perfilado profesional</p>
+                        <button class="btn-ver-mas" aria-label="Ver imagen completa">
+                            <i class="fas fa-search-plus"></i>
+                        </button>
+                    </figcaption>
+                </figure>
+
+                <figure class="galeria-item" data-categoria="clasico">
+                    <img src="imagenes/Corte clásico pompadour.jpg" alt="Corte clásico pompadour" loading="lazy">
+                    <figcaption class="galeria-overlay">
+                        <h4>Pompadour Clásico</h4>
+                        <p>Elegancia atemporal</p>
+                        <button class="btn-ver-mas" aria-label="Ver imagen completa">
+                            <i class="fas fa-search-plus"></i>
+                        </button>
+                    </figcaption>
+                </figure>
+
+                <figure class="galeria-item" data-categoria="fade">
+                    <img src="imagenes/Corte skin fade.jpg" alt="Corte skin fade" loading="lazy">
+                    <figcaption class="galeria-overlay">
+                        <h4>Skin Fade</h4>
+                        <p>Degradado a cero</p>
+                        <button class="btn-ver-mas" aria-label="Ver imagen completa">
+                            <i class="fas fa-search-plus"></i>
+                        </button>
+                    </figcaption>
+                </figure>
+
+                <figure class="galeria-item" data-categoria="texturizado">
+                    <img src="imagenes/Corte con diseño artístico.jpg" alt="Corte con diseño artístico" loading="lazy">
+                    <figcaption class="galeria-overlay">
+                        <h4>Diseño Artístico</h4>
+                        <p>Arte en tu cabello</p>
+                        <button class="btn-ver-mas" aria-label="Ver imagen completa">
+                            <i class="fas fa-search-plus"></i>
+                        </button>
+                    </figcaption>
+                </figure>
+            </div>
+
+            <!-- BOTÓN VER MÁS -->
+            <div class="galeria-more">
+                <button class="btn btn-secondary">
+                    <i class="fas fa-images"></i>
+                    Ver Más Trabajos
+                </button>
+            </div>
+        </section>
+
+        <!-- ============================================ -->
+        <!-- SECCIÓN PRECIOS: Tabla de precios -->
+        <!-- ============================================ -->
+        <section class="precios" id="precios" aria-labelledby="titulo-precios">
+            
+            <header class="section-header">
+                <h2 id="titulo-precios" class="section-title">
+                    <i class="fas fa-tags"></i>
+                    Lista de Precios
+                </h2>
+                <p class="section-subtitle">
+                    Precios accesibles con la mejor calidad
+                </p>
+            </header>
+
+            <!-- TABLA DE PRECIOS -->
+            <div class="precios-container">
+                
+                <!-- COLUMNA 1: BÁSICO -->
+                <div class="precio-card">
+                    <h3 class="precio-nombre">Básico</h3>
+                    <div class="precio-icon">
+                        <i class="fas fa-cut"></i>
+                    </div>
+                    <div class="precio-monto">
+                        <span class="moneda">$</span>
+                        <span class="valor">15</span>
+                        <span class="periodo">/corte</span>
+                    </div>
+                    <ul class="precio-features">
+                        <li><i class="fas fa-check"></i> Corte de cabello</li>
+                        <li><i class="fas fa-check"></i> Lavado</li>
+                        <li><i class="fas fa-check"></i> Peinado</li>
+                        <li class="disabled"><i class="fas fa-times"></i> Barba</li>
+                        <li class="disabled"><i class="fas fa-times"></i> Cejas</li>
+                    </ul>
+                    <a href="#reservas" class="btn btn-outline">Elegir Plan</a>
+                </div>
+
+                <!-- COLUMNA 2: COMBO (DESTACADO) -->
+                <div class="precio-card destacado">
+                    <div class="badge-recomendado">Recomendado</div>
+                    <h3 class="precio-nombre">Combo Completo</h3>
+                    <div class="precio-icon">
+                        <i class="fas fa-crown"></i>
+                    </div>
+                    <div class="precio-monto">
+                        <span class="moneda">$</span>
+                        <span class="valor">30</span>
+                        <span class="periodo">/servicio</span>
+                    </div>
+                    <ul class="precio-features">
+                        <li><i class="fas fa-check"></i> Corte de cabello</li>
+                        <li><i class="fas fa-check"></i> Arreglo de barba</li>
+                        <li><i class="fas fa-check"></i> Diseño de cejas</li>
+                        <li><i class="fas fa-check"></i> Bebida de cortesía</li>
+                        <li><i class="fas fa-check"></i> 20% descuento</li>
+                    </ul>
+                    <a href="#reservas" class="btn btn-primary">Elegir Plan</a>
+                </div>
+
+                <!-- COLUMNA 3: PREMIUM -->
+                <div class="precio-card">
+                    <h3 class="precio-nombre">Premium</h3>
+                    <div class="precio-icon">
+                        <i class="fas fa-gem"></i>
+                    </div>
+                    <div class="precio-monto">
+                        <span class="moneda">$</span>
+                        <span class="valor">45</span>
+                        <span class="periodo">/mes</span>
+                    </div>
+                    <ul class="precio-features">
+                        <li><i class="fas fa-check"></i> 4 cortes al mes</li>
+                        <li><i class="fas fa-check"></i> Barba ilimitada</li>
+                        <li><i class="fas fa-check"></i> Prioridad de turno</li>
+                        <li><i class="fas fa-check"></i> Productos con descuento</li>
+                        <li><i class="fas fa-check"></i> Atención VIP</li>
+                    </ul>
+                    <a href="#reservas" class="btn btn-outline">Elegir Plan</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================ -->
+        <!-- SECCIÓN RESERVAS: Formulario de contacto -->
+        <!-- ============================================ -->
+        <section class="reservas" id="reservas" aria-labelledby="titulo-reservas">
+            
+            <header class="section-header">
+                <h2 id="titulo-reservas" class="section-title">
+                    <i class="fas fa-calendar-check"></i>
+                    Reserva Tu Cita
+                </h2>
+                <p class="section-subtitle">
+                    Completa el formulario y te confirmaremos en minutos
+                </p>
+            </header>
+
+            <!-- FORMULARIO DE RESERVAS -->
+            <!-- form es el elemento semántico para formularios [[8]] -->
+            <form class="formulario-reservas" action="#" method="POST" novalidate>
+                
+                <!-- FIELDSET agrupa elementos relacionados del formulario -->
+                <fieldset>
+                    <legend>Datos Personales</legend>
+                    
+                    <div class="form-grid">
+                        <!-- INPUT TEXT: Nombre -->
+                        <!-- label asocia el texto al input para accesibilidad [[21]] -->
+                        <div class="form-group">
+                            <label for="nombre">
+                                <i class="fas fa-user"></i>
+                                Nombre completo *
+                            </label>
+                            <input 
+                                type="text" 
+                                id="nombre" 
+                                name="nombre" 
+                                placeholder="Ej: Juan Pérez" 
+                                required 
+                                autocomplete="name"
+                                aria-required="true"
+                                aria-describedby="ayuda-nombre"
+                            >
+                            <small id="ayuda-nombre" class="form-help">Ingresa tu nombre completo</small>
+                        </div>
+
+                        <!-- INPUT TEL: Teléfono -->
+                        <!-- type="tel" activa teclado numérico en móviles [[9]] -->
+                        <div class="form-group">
+                            <label for="telefono">
+                                <i class="fas fa-phone"></i>
+                                Teléfono *
+                            </label>
+                            <input 
+                                type="tel" 
+                                id="telefono" 
+                                name="telefono" 
+                                placeholder="Ej: 300 123 4567" 
+                                required 
+                                pattern="[0-9]{10}"
+                                autocomplete="tel"
+                                aria-required="true"
+                            >
+                            <small class="form-help">10 dígitos sin espacios</small>
+                        </div>
+
+                        <!-- INPUT EMAIL: Correo electrónico -->
+                        <!-- type="email" valida formato de email automáticamente [[9]] -->
+                        <div class="form-group">
+                            <label for="email">
+                                <i class="fas fa-envelope"></i>
+                                Correo electrónico
+                            </label>
+                            <input 
+                                type="email" 
+                                id="email" 
+                                name="email" 
+                                placeholder="Ej: juan@email.com" 
+                                autocomplete="email"
+                            >
+                        </div>
+
+                        <!-- SELECT: Servicio -->
+                        <div class="form-group">
+                            <label for="servicio">
+                                <i class="fas fa-cut"></i>
+                                Servicio *
+                            </label>
+                            <select id="servicio" name="servicio" required aria-required="true">
+                                <option value="">Selecciona un servicio</option>
+                                <option value="corte">Corte de Cabello - $15</option>
+                                <option value="barba">Arreglo de Barba - $10</option>
+                                <option value="combo">Combo Completo - $30</option>
+                                <option value="cejas">Diseño de Cejas - $5</option>
+                                <option value="ninos">Corte Niño - $12</option>
+                                <option value="express">Servicio Express - $8</option>
+                            </select>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Detalles de la Reserva</legend>
+                    
+                    <div class="form-grid">
+                        <!-- INPUT DATE: Fecha -->
+                        <!-- type="date" muestra selector de fecha [[9]] -->
+                        <div class="form-group">
+                            <label for="fecha">
+                                <i class="fas fa-calendar"></i>
+                                Fecha preferida *
+                            </label>
+                            <input 
+                                type="date" 
+                                id="fecha" 
+                                name="fecha" 
+                                required 
+                                min=""
+                                aria-required="true"
+                            >
+                        </div>
+
+                        <!-- INPUT TIME: Hora -->
+                        <!-- type="time" muestra selector de hora [[9]] -->
+                        <div class="form-group">
+                            <label for="hora">
+                                <i class="fas fa-clock"></i>
+                                Hora preferida *
+                            </label>
+                            <input 
+                                type="time" 
+                                id="hora" 
+                                name="hora" 
+                                required 
+                                min="09:00" 
+                                max="19:00"
+                                aria-required="true"
+                            >
+                            <small class="form-help">Horario: 9:00 AM - 7:00 PM</small>
+                        </div>
+
+                        <!-- TEXTAREA: Notas adicionales -->
+                        <div class="form-group full-width">
+                            <label for="notas">
+                                <i class="fas fa-comment"></i>
+                                Notas adicionales
+                            </label>
+                            <textarea 
+                                id="notas" 
+                                name="notas" 
+                                rows="3" 
+                                placeholder="Ej: Quiero un fade medio, tengo alergia a..."
+                            ></textarea>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <!-- CHECKBOX: Términos y condiciones -->
+                <div class="form-group checkbox-group">
+                    <input 
+                        type="checkbox" 
+                        id="terminos" 
+                        name="terminos" 
+                        required 
+                        aria-required="true"
+                    >
+                    <label for="terminos">
+                        Acepto los <a href="#" target="_blank">términos y condiciones</a> 
+                        y la política de privacidad *
+                    </label>
+                </div>
+
+                <!-- BOTONES DE ACCIÓN -->
+                <div class="form-actions">
+                    <button type="reset" class="btn btn-outline">
+                        <i class="fas fa-undo"></i>
+                        Limpiar
+                    </button>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-paper-plane"></i>
+                        Confirmar Reserva
+                    </button>
+                </div>
+            </form>
+
+            <!-- MENSAJE DE CONFIRMACIÓN (oculto inicialmente) -->
+            <div class="mensaje-exito" id="mensajeExito" hidden>
+                <i class="fas fa-check-circle"></i>
+                <h3>¡Reserva Confirmada!</h3>
+                <p>Te hemos enviado un correo con los detalles.</p>
+            </div>
+        </section>
+
+        <!-- ============================================ -->
+        <!-- SECCIÓN UBICACIÓN: Mapa y datos de contacto -->
+        <!-- ============================================ -->
+        <section class="ubicacion" id="ubicacion" aria-labelledby="titulo-ubicacion">
+            
+            <header class="section-header">
+                <h2 id="titulo-ubicacion" class="section-title">
+                    <i class="fas fa-map-marker-alt"></i>
+                    Ubicación
+                </h2>
+                <p class="section-subtitle">
+                    Visítanos en nuestra ubicación céntrica
+                </p>
+            </header>
+
+            <div class="ubicacion-container">
+                <!-- INFORMACIÓN DE CONTACTO -->
+                <div class="info-contacto">
+                    <h3>Información de Contacto</h3>
+                    
+                    <div class="contacto-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Dirección</h4>
+                            <p>Calle Principal #123<br>Barrio Centro, Ciudad</p>
+                        </div>
+                    </div>
+
+                    <div class="contacto-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <h4>Horarios de Atención</h4>
+                            <p>
+                                Lunes a Viernes: 2:00 PM - 7:00 PM<br>
+                                Sábados y Domingos: 9:00 AM - 8:00 PM<br>
+                                <small>Jueves: Cerrado</small>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="contacto-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4>Teléfono</h4>
+                            <p>
+                                <a href="tel:+59161127886">(123) 456-7890</a><br>
+                                <a href="https://wa.me/59161127886" target="_blank">
+                                    <i class="fab fa-whatsapp"></i> WhatsApp
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="contacto-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email</h4>
+                            <p>
+                                <a href="mailto:info@corteurbano.com">
+                                    info@corteurbano.com
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- REDES SOCIALES -->
+                    <div class="redes-sociales">
+                        <h4>Síguenos</h4>
+                        <div class="redes-icons">
+                            <a href="#" aria-label="Instagram" target="_blank">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" aria-label="Facebook" target="_blank">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" aria-label="TikTok" target="_blank">
+                                <i class="fab fa-tiktok"></i>
+                            </a>
+                            <a href="#" aria-label="YouTube" target="_blank">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MAPA DE GOOGLE -->
+                <!-- iframe inserta contenido externo (el mapa) -->
+                <div class="mapa-container">
+                    <iframe 
+                        src="<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3824.347051701212!2d-68.2077492!3d-16.5590297!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x915edf30db8e83f3%3A0x36b9aa0139ea9f6b!2sPeluquer%C3%ADa%20Corte%20Urbano!5e0!3m2!1ses-419!2sbo!4v1788831555156!5m2!1ses-419!2sbo" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>" 
+                        width="100%" 
+                        height="400" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy"
+                        title="Ubicación de Corte Urbano en Google Maps"
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ============================================ -->
+    <!-- FOOTER: Pie de página -->
+    <!-- ============================================ -->
+    <footer class="footer">
+        
+        <!-- GRID DEL FOOTER -->
+        <div class="footer-grid">
+            
+            <!-- COLUMNA 1: Logo y descripción -->
+            <div class="footer-col">
+                <div class="footer-logo">
+                    <i class="fas fa-scissors"></i>
+                    <span>Corte Urbano</span>
+                </div>
+                <p>
+                    Barbería moderna especializada en cortes urbanos 
+                    y estilos contemporáneos. Tu mejor versión comienza aquí.
+                </p>
+            </div>
+
+            <!-- COLUMNA 2: Links rápidos -->
+            <div class="footer-col">
+                <h4>Links Rápidos</h4>
+                <ul class="footer-links">
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#servicios">Servicios</a></li>
+                    <li><a href="#galeria">Galería</a></li>
+                    <li><a href="#precios">Precios</a></li>
+                    <li><a href="#reservas">Reservas</a></li>
+                </ul>
+            </div>
+
+            <!-- COLUMNA 3: Servicios -->
+            <div class="footer-col">
+                <h4>Servicios</h4>
+                <ul class="footer-links">
+                    <li><a href="#servicios">Corte de Cabello</a></li>
+                    <li><a href="#servicios">Arreglo de Barba</a></li>
+                    <li><a href="#servicios">Combo Completo</a></li>
+                    <li><a href="#servicios">Diseño de Cejas</a></li>
+                    <li><a href="#servicios">Corte Niño</a></li>
+                </ul>
+            </div>
+
+            <!-- COLUMNA 4: Newsletter -->
+            <div class="footer-col">
+                <h4>Newsletter</h4>
+                <p>Suscríbete para recibir promociones exclusivas</p>
+                <form class="newsletter-form">
+                    <input 
+                        type="email" 
+                        placeholder="Tu email" 
+                        required
+                        aria-label="Email para newsletter"
+                    >
+                    <button type="submit" aria-label="Suscribirse">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <!-- BARRA INFERIOR -->
+        <div class="footer-bottom">
+            <p>&copy; 2026 Corte Urbano. Todos los derechos reservados.</p>
+            <div class="footer-legal">
+                <a href="#">Política de Privacidad</a>
+                <a href="#">Términos y Condiciones</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- BOTÓN FLOTANTE DE WHATSAPP -->
+    <a 
+        href="https://wa.me/59161127886" 
+        class="whatsapp-float" 
+        target="_blank"
+        aria-label="Contactar por WhatsApp"
+    >
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- BOTÓN VOLVER ARRIBA -->
+    <button 
+        class="scroll-top" 
+        id="scrollTop" 
+        aria-label="Volver arriba"
+        hidden
+    >
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- ============================================ -->
+    <!-- SCRIPTS JAVASCRIPT -->
+    <!-- ============================================ -->
+    <!-- Script para los hexágonos animados -->
+    <script src="java.js"></script>
+    
+    <!-- Script principal de la página -->
+    <script src="js/main.js"></script>
+    
+    <!-- Script del formulario -->
+    <script src="js/formulario.js"></script>
+</body>
+</html>
